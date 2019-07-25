@@ -1,11 +1,16 @@
+import 'core-js/stable'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import {CacheProvider} from 'rest-hooks'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <App />,
+  <CacheProvider>
+    <App />
+  </CacheProvider>
+  ,
   document.getElementById('root')
 );
 
