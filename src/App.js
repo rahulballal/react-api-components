@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Loader from 'react-loader-spinner'
+import CommentList from './CommentList'
+import CommentsWithData from './CommentsWithData'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <CommentsWithData
+    loadingNode={
+      <Loader type="TailSpin" color="#00BFFF" height="100" width="100" />
+    }
+    failureNode={<p>It blew up :(</p>}
+  >
+    {comments => <CommentList comments={comments} />}
+  </CommentsWithData>
+)
 
-export default App;
+export default App
